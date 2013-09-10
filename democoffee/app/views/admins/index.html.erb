@@ -1,0 +1,34 @@
+<div class="row" style="padding:15px">
+	<h1>Admin</h1>
+	<table class="table table-striped span5">
+		<tr>
+			<th>用户ID</th>
+			<th>邮箱</th>
+			<th>状态</th>
+			<th>满意度</th>
+			<th>操作</th>
+		</tr>
+		<% for user in @users %>
+		<tr class="info">
+			<td><%= user.id %></td>
+			<td><%= user.email %></td>
+			<td>等待</td>
+			<td></td>
+			<td><%= link_to "提醒", notificate_user_admin_path(user.id), class: "btn" %></td>
+		</tr>
+
+		<% end %>
+
+		<% for user in @finish_users %>
+		<tr class="success">
+			<td><%= user.id %></td>
+			<td><%= user.email %></td>
+			<td>完毕</td>
+			<td><%= user.value_level %></td>
+			<td><%= link_to "查看", notificate_user_admin_path(user.id), class: "btn" %></td>
+		</tr>
+
+		<% end %>
+
+	</table>
+</div>

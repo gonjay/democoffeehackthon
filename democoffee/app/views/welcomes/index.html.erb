@@ -1,0 +1,12 @@
+<p><%= User.new.queue_info %></p>
+<p>在您前面有：  	<%= User.new.queuing_people_num %>人</p>
+<p>大约等待时间：	<%= User.new.average_wait_time.to_i/60 %>分钟</p>
+
+<p>请输入邮箱</p>
+
+<form action="/users" accept-charset="UTF-8" method="POST">
+	<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+	<input name="email" type="email">
+	<br>
+	<input class="btn" type="submit" value="确定">
+</form>

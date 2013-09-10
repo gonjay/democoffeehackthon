@@ -1,4 +1,15 @@
 Democoffee::Application.routes.draw do
+
+  resources :users do
+    get :value, on: :member
+    get :check, on: :member
+  end
+
+  resources :admins do
+    get :notificate_user, on: :member
+  end
+
+  root :to => 'welcomes#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
